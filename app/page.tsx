@@ -44,7 +44,7 @@ export default function Home() {
 
             {/* आईटी वाले */}
             <h1
-                className="absolute top-6 sm:top-4 md:top-[80px] left-1/2 -translate-x-1/2 z-10 text-7xl  md:text-[120px] lg:text-[140px] tracking-wide text-center leading-none select-none"
+                className="absolute top-6 sm:top-4 md:top-6 left-1/2 -translate-x-1/2 z-10 text-7xl  md:text-[120px] lg:text-[140px] tracking-wide text-center leading-none select-none"
                 style={{
                     fontFamily: "'Baloo 2', sans-serif",
                     fontWeight: 800,
