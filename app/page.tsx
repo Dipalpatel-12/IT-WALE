@@ -65,14 +65,14 @@ export default function Home() {
                     style={{
                         fontFamily: "'Baloo 2', sans-serif",
                         fontWeight: 800,
-                        color: "#FFFFFF",
+                        color: "#ffffff",
                         textShadow: `
                             0 0 20px rgba(214,140,47,0.6),
                             0 0 40px rgba(214,140,47,0.4),
-                            2px 2px 0 #D68C2F,
-                            4px 4px 0 #D68C2F,
-                            6px 6px 0 #B8721F,
-                            8px 8px 0 #8F5714,
+                            2px 2px 0 #d68c2f,
+                            4px 4px 0 #d68c2f,
+                            6px 6px 0 #b8721f,
+                            8px 8px 0 #8f5714,
                             10px 10px 0 rgba(0,0,0,0.5),
                             12px 12px 20px rgba(0,0,0,0.7)
                         `,
@@ -98,7 +98,7 @@ export default function Home() {
                             className="w-[128px] sm:w-[140px] flex items-center gap-2 sm:gap-3 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 transition-all duration-200 cursor-pointer"
                             style={{
                                 background: activeIndex === i ? "rgba(20,14,10,0.95)" : "rgba(10,6,4,0.8)",
-                                border: `2px solid ${activeIndex === i ? "#D68C2F" : "rgba(255,255,255,0.25)"}`,
+                                border: `2px solid ${activeIndex === i ? "#d68c2f" : "rgba(255,255,255,0.25)"}`,
                                 backdropFilter: "blur(10px)",
                                 boxShadow: activeIndex === i
                                     ? "0 0 20px rgba(214,140,47,0.5)"
@@ -107,8 +107,8 @@ export default function Home() {
                         >
                             <span className="text-lg sm:text-2xl shrink-0">{p.icon}</span>
                             <span className="text-left min-w-0">
-                <span className="block text-[10px] sm:text-[12px] font-semibold truncate" style={{ color: "#FFFFFF" }}>{p.title}</span>
-                <span className="block text-[11px] sm:text-[12px] truncate" style={{ color: "#D9C9B4" }}>{p.subtitle}</span>
+                <span className="block text-[10px] sm:text-[12px] font-semibold truncate" style={{ color: "#ffffff" }}>{p.title}</span>
+                <span className="block text-[11px] sm:text-[12px] truncate" style={{ color: "#d9c9b4" }}>{p.subtitle}</span>
             </span>
                         </button>
                     ))}
@@ -125,7 +125,7 @@ export default function Home() {
                 <div className="flex flex-col items-center text-center gap-4 sm:gap-6 mt-10 sm:mt-14 md:mt-20 px-2">
                     {/*<p*/}
                     {/*    className="text-[13px] sm:text-[15px] tracking-widest uppercase"*/}
-                    {/*    style={{ fontFamily: "'Space Mono', monospace", color: "#FFFFFF" }}*/}
+                    {/*    style={{ fontFamily: "'Space Mono', monospace", color: "#ffffff" }}*/}
                     {/*>*/}
                     {/*    3 vibes. Endless memories.*/}
                     {/*</p>*/}
@@ -148,21 +148,22 @@ export default function Home() {
                 href="https://optimitylogics.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="fixed bottom-3 sm:bottom-4 right-3 sm:right-5 z-20 flex items-center gap-1.5 sm:gap-2 cursor-pointer transition-opacity duration-200 hover:opacity-70"
+                className="fixed bottom-5 sm:bottom-4 right-3 sm:right-5 z-20 flex items-center gap-1.5 sm:gap-2 cursor-pointer transition-opacity duration-200 hover:opacity-70"
+                style={{ bottom: "calc(10px + env(safe-area-inset-bottom, 0px))" }}
             >
                 <Image
                     src="/optimity-logo.png"
                     alt="OptimityLogics"
-                    width={20}
-                    height={20}
-                    className="w-4 h-4 sm:w-5 sm:h-5 object-cover"
+                    width={28}
+                    height={28}
+                    className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
                 />
                 <span
                     className="text-[10px] sm:text-[12px] tracking-wide"
-                    style={{ color: "#FFFFFF", fontFamily: "'Work Sans', sans-serif", fontWeight: 400 }}
+                    style={{ color: "#ffffff", fontFamily: "'Work Sans', sans-serif", fontWeight: 400 }}
                 >
-                    Tuned by Optimity Logics
-                </span>
+        Tuned by Optimity Logics
+    </span>
             </a>
         </main>
     );

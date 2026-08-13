@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     description: "IT WAALE - An ambient radio blending Bollywood, retro, and trending hits for Millennials, Gen Z, and Gen Alpha alike.",
 };
 
+export const viewport = {
+    width: "device-width",
+    initialScale: 1,
+    viewportFit: "cover",
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
     return (
         <html
