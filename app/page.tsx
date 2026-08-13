@@ -147,13 +147,13 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="fixed bottom-3 sm:bottom-4 right-3 sm:right-5 z-20 flex items-center gap-1.5 sm:gap-2 cursor-pointer transition-opacity duration-200 hover:opacity-70"
             >
-            <Image
-                src="/optimity-logo.png"
-                alt="OptimityLogics"
-                width={20}
-                height={20}
-                className="w-4 h-4 sm:w-5 sm:h-5 object-cover"
-            />
+                <Image
+                    src="/optimity-logo.png"
+                    alt="OptimityLogics"
+                    width={28}
+                    height={28}
+                    className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                />
             <span
                 className="text-[10px] sm:text-[12px] tracking-wide"
                 style={{ color: "#ffffff", fontFamily: "'Work Sans', sans-serif", fontWeight: 400 }}

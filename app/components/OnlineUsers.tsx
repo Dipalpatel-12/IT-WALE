@@ -38,7 +38,7 @@ export default function OnlineUsers() {
     }, []);
 
     return (
-        <div className="fixed top-0 sm:top-0 md:top-0 left-1/2 -translate-x-1/2 z-30">
+        <div className="fixed top-0 sm:top-0 md:top-0 pt-[10px] left-1/2 -translate-x-1/2 z-30">
             <div
                 className="flex items-center gap-2 "
                 style={{
@@ -56,7 +56,7 @@ export default function OnlineUsers() {
                     className="text-[11px] sm:text-[13px]"
                     style={{ fontFamily: "'Work Sans', sans-serif", color: "#ffffff" }}
                 >
-                    {count} between the tasks
+                    {count} Between the tasks
                 </span>
             </div>
         </div>
