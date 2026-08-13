@@ -158,7 +158,7 @@ export default function Home() {
                 className="text-[10px] sm:text-[12px] tracking-wide"
                 style={{ color: "#ffffff", fontFamily: "'Work Sans', sans-serif", fontWeight: 400 }}
             >
-                    Tuned by OptimityLogics
+                    Tuned by Optimity Logics
                 </span>
         </a>
 </main>
