@@ -1,7 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
 import RadioPlayer from "@/app/components/RadioPlayer";
+import DevQuote from "@/app/components/DevQuote";
+import SuggestionPrinter from "@/app/components/SuggestionPrinter";
 import { playlists } from "@/app/lib/playlists";
+import Image from "next/image";
+import OnlineUsers from "@/app/components/OnlineUsers";
 
 const STORAGE_KEY = "it-wale-active-playlist";
 
@@ -30,15 +34,26 @@ export default function Home() {
     if (!hydrated) return null;
 
     return (
-        <main
-            className="relative min-h-[100dvh] flex flex-col items-center overflow-hidden"
-            style={{
-                backgroundImage: "url('/it-3.png')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-            }}
-        >
-            <div className="absolute inset-0" style={{ background: "rgba(10, 6, 4, 0.25)" }} />
+        <main className="relative min-h-[100dvh] flex flex-col items-center overflow-hidden">
+            <div
+                className="fixed inset-0 -z-10"
+                style={{
+                    backgroundImage: "url('/itwale-bg.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            />
+            <div
+                className="absolute inset-0"
+                style={{ background: "rgba(35, 18, 8, 0.35)"  }}
+            />
+
+            <OnlineUsers />
+
+            {/* Suggestion box — desktop/tablet only, fixed top-left corner */}
+            <div className="hidden sm:block fixed top-3 left-3 md:top-4 md:left-4 z-30 scale-[0.5] md:scale-[0.6] lg:scale-[0.75] origin-top-left">
+                <SuggestionPrinter />
+            </div>
 
             {/* Everything below is a normal flex column now — nothing is absolutely
                positioned against the heading, so it can never overlap on small screens. */}
@@ -70,13 +85,17 @@ export default function Home() {
                 {/* Playlist selector — now sits in normal flow right under the heading
                    on every breakpoint, so it never collides with it. */}
                 <div
-                    className="flex flex-wrap justify-center gap-2.5 sm:gap-3 mt-6 sm:mt-8 md:mt-10 w-full max-w-[280px] sm:max-w-none"
+                    className="flex flex-wrap justify-center gap-2.5 mt-6 w-full max-w-[280px]
+   sm:flex-col sm:flex-nowrap sm:justify-start sm:items-end sm:gap-3
+   sm:absolute sm:top-3 sm:right-3 sm:mt-0 sm:w-auto sm:max-w-none
+   md:top-4 md:right-8
+   lg:top-4 lg:right-12"
                 >
                     {playlists.map((p, i) => (
                         <button
                             key={p.slug}
                             onClick={() => handleSelect(i)}
-                            className="w-[128px] sm:w-[150px] flex items-center gap-2 sm:gap-3 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 transition-all duration-200 cursor-pointer"
+                            className="w-[128px] sm:w-[140px] flex items-center gap-2 sm:gap-3 rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 transition-all duration-200 cursor-pointer"
                             style={{
                                 background: activeIndex === i ? "rgba(20,14,10,0.95)" : "rgba(10,6,4,0.8)",
                                 border: `2px solid ${activeIndex === i ? "#d68c2f" : "rgba(255,255,255,0.25)"}`,
@@ -88,31 +107,60 @@ export default function Home() {
                         >
                             <span className="text-lg sm:text-2xl shrink-0">{p.icon}</span>
                             <span className="text-left min-w-0">
-                                <span className="block text-[12px] sm:text-sm font-semibold truncate" style={{ color: "#ffffff" }}>{p.title}</span>
-                                <span className="block text-[11px] sm:text-[12px] truncate" style={{ color: "#d9c9b4" }}>{p.subtitle}</span>
-                            </span>
+                <span className="block text-[10px] sm:text-[12px] font-semibold truncate" style={{ color: "#ffffff" }}>{p.title}</span>
+                <span className="block text-[11px] sm:text-[12px] truncate" style={{ color: "#d9c9b4" }}>{p.subtitle}</span>
+            </span>
                         </button>
                     ))}
                 </div>
 
+                {/* Suggestion box — mobile only, sits below the playlist boxes, normal flow, centered, small */}
+                <div className="sm:hidden mt-36 scale-[0.55] origin-top">
+                    <SuggestionPrinter />
+                </div>
                 {/* Center tagline */}
                 <div className="flex flex-col items-center text-center gap-4 sm:gap-6 mt-10 sm:mt-14 md:mt-20 px-2">
-                    <p
-                        className="text-[13px] sm:text-[15px] tracking-widest uppercase"
-                        style={{ fontFamily: "'Space Mono', monospace", color: "#ffffff" }}
-                    >
-                        3 vibes. Endless memories.
-                    </p>
+                    {/*<p*/}
+                    {/*    className="text-[13px] sm:text-[15px] tracking-widest uppercase"*/}
+                    {/*    style={{ fontFamily: "'Space Mono', monospace", color: "#ffffff" }}*/}
+                    {/*>*/}
+                    {/*    3 vibes. Endless memories.*/}
+                    {/*</p>*/}
                 </div>
             </div>
 
             {activePlaylist && (
-                <RadioPlayer
-                    key={activePlaylist.playlistId}
-                    playlistId={activePlaylist.playlistId}
-                    categoryTitle={activePlaylist.title}
-                />
+                <>
+                    <DevQuote />
+                    <RadioPlayer
+                        key={activePlaylist.playlistId}
+                        playlistId={activePlaylist.playlistId}
+                        categoryTitle={activePlaylist.title}
+                    />
+                </>
             )}
-        </main>
-    );
+
+            {/* Footer credit — bottom-right, out of the way of the center quote/player stack */}
+            <a
+                href="https://optimitylogics.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="fixed bottom-3 sm:bottom-4 right-3 sm:right-5 z-20 flex items-center gap-1.5 sm:gap-2 cursor-pointer transition-opacity duration-200 hover:opacity-70"
+            >
+            <Image
+                src="/optimity-logo.png"
+                alt="OptimityLogics"
+                width={20}
+                height={20}
+                className="w-4 h-4 sm:w-5 sm:h-5 object-cover"
+            />
+            <span
+                className="text-[10px] sm:text-[12px] tracking-wide"
+                style={{ color: "#ffffff", fontFamily: "'Work Sans', sans-serif", fontWeight: 400 }}
+            >
+                    Tuned by OptimityLogics
+                </span>
+        </a>
+</main>
+);
 }

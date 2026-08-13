@@ -153,7 +153,7 @@ export default function RadioPlayer({ playlistId, categoryTitle }: RadioPlayerPr
 
     return (
         <div
-            className="fixed bottom-4 sm:bottom-8 md:bottom-16 left-1/2 -translate-x-1/2 z-20
+            className="fixed bottom-10 sm:bottom- md:bottom-12 left-1/2 -translate-x-1/2 z-20
                        w-[94%] sm:w-[92%] max-w-2xl
                        rounded-2xl sm:rounded-full
                        px-3 sm:px-4 py-2.5 sm:py-3
@@ -248,7 +248,7 @@ export default function RadioPlayer({ playlistId, categoryTitle }: RadioPlayerPr
                     onClick={playPrev}
                     aria-label="Previous"
                     disabled={!isReady}
-                    className="flex items-center justify-center cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex items-center justify-center cursor-pointer transition-transform duration-150 hover:scale-110 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
                     style={{ color: "#E8D9C4" }}
                 >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="sm:w-5 sm:h-5">
@@ -260,7 +260,7 @@ export default function RadioPlayer({ playlistId, categoryTitle }: RadioPlayerPr
                     onClick={togglePlay}
                     aria-label={isPlaying ? "Pause" : "Play"}
                     disabled={!isReady}
-                    className="w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 shrink-0"
+                    className="w-11 h-11 sm:w-14 sm:h-14 rounded-full flex items-center justify-center cursor-pointer  disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100 shrink-0"
                     style={{
                         background: "#FFF6E8",
                         color: "#241209",
@@ -283,7 +283,7 @@ export default function RadioPlayer({ playlistId, categoryTitle }: RadioPlayerPr
                     onClick={playNext}
                     aria-label="Next"
                     disabled={!isReady}
-                    className="flex items-center justify-center cursor-pointer disabled:cursor-not-allowed disabled:opacity-50"
+                    className="flex items-center justify-center cursor-pointer transition-transform duration-150 hover:scale-110 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
                     style={{ color: "#E8D9C4" }}
                 >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="sm:w-5 sm:h-5">
