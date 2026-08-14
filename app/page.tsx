@@ -355,7 +355,7 @@ export default function Home() {
                     alt="OptimityLogics"
                     width={28}
                     height={28}
-                    className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                    className="w-5 w h-5 sm:w-6 sm:h-6 object-contain"
                 />
                 <span
                     className="text-[10px] sm:text-[12px] tracking-wide"
