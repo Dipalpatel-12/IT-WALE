@@ -856,7 +856,13 @@ export default function RadioPlayer({ playlistId, categoryTitle }: RadioPlayerPr
     };
     const playNext = () => {
         if (!playerRef.current || !isReady) return;
-        playerRef.current.nextVideo();
+        const playlist = playerRef.current.getPlaylist?.();
+        const currentIndex = playerRef.current.getPlaylistIndex?.();
+        if (playlist && typeof currentIndex === "number" && currentIndex === playlist.length - 1) {
+            playerRef.current.playVideoAt(0);
+        } else {
+            playerRef.current.nextVideo();
+        }
     };
     const playPrev = () => {
         if (!playerRef.current || !isReady) return;
