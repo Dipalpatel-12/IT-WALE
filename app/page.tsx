@@ -199,6 +199,14 @@ export default function Home() {
     const handleSelect = (i: number) => {
         setActiveIndex(i);
         localStorage.setItem(STORAGE_KEY, String(i));
+
+
+        // Send category selection event to GA4
+        if (typeof window !== "undefined" && typeof window.gtag === "function") {
+            window.gtag("event", "category_select", {
+                category: playlists[i].title,
+            });
+        }
     };
 
     const activePlaylist = activeIndex !== null ? playlists[activeIndex] : null;
